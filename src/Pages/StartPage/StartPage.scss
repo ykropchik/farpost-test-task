@@ -1,0 +1,13 @@
+.start-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #F7F7F7;
+
+    .text {
+        font-size: 18px;
+        color: #777777;
+    }
+}
