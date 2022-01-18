@@ -1,27 +1,35 @@
+import { useRef } from 'react';
 import './Breef.scss';
-import { testData } from '../../Api/test';
+import UserIcon from '../../Icons/user-icon.svg';
 
-export default function Breef() {
+export default function Breef({breefData}) {
+
+    const breefRef = useRef(null);
+    
+    const onClickHandler = () => {
+        breefRef.current.focus();
+    }
+
     return (
-        <div className="breef-container">
+        <div className="breef-container" tabIndex={0} onClick={onClickHandler} ref={breefRef}>
             <div className='breef-header'>
                 <div className='header-left-side'>
-                    <a className='breef-id' href='#'>{testData.id}</a>
+                    <a className='breef-id' href='#'>{breefData.id}</a>
                     <span className='header-separator'>{' — '}</span>
-                    <span className='breef-date'>{testData.publishDateString}</span>
+                    <span className='breef-date'>{breefData.publishDateString}</span>
                 </div>
                 <div className='header-right-side'>
-                    <span className='user-icon'></span>
-                    <span className='username'>{testData.ownerLogin}</span>
+                    <img className='user-icon' src={UserIcon}/>
+                    <a className='username' href='#'>{breefData.ownerLogin}</a>
                 </div>
             </div>
+            <div className='content-subject'>{breefData.bulletinSubject}</div>
             <div className='breef-content'>
-                <div className='content-subject'>{testData.bulletinSubject}</div>
-                <div className='content-text'>{testData.bulletinText}</div>
+                <div className='content-text'>{breefData.bulletinText}</div>
                 <div className='content-imgs-container'>
                     {
-                        testData.bulletinImagees.map((imgURL, i) => (
-                            <img src={imgURL} key={`img-${i}`}></img>
+                        breefData.bulletinImagees.map((imgURL, i) => (
+                            <img className='content-img' src={imgURL} key={`img-${i}`}></img>
                         ))
                     }
                 </div>

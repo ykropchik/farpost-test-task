@@ -1,16 +1,18 @@
 .breef-container {
-    position: absolute;
     display: flex;
     flex-direction: column;
-    width: 1160px;
+    flex-grow: 1;
     height: 539px;
     margin: 12px 24px;
 
     background: #FFFFFF;
     border: 1px solid #E4E4E4;
-    box-sizing: border-box;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
     border-radius: 3px;
+    transition: all 0.2s ease;
+
+    &:focus {
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+    }
 
     .breef-header {
         display: flex;
@@ -21,6 +23,9 @@
         border-bottom: 1px solid #E4E4E4;
 
         .header-left-side {
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
 
             .breef-id {
                 text-decoration: none;
@@ -30,8 +35,13 @@
         }
     
         .header-right-side {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
 
             .username {
+                font-size: 16px;
                 text-decoration: none;
                 color: #1764CC;
             }
@@ -39,20 +49,20 @@
         }
     }
 
-    .breef-content {
-        flex-grow: 1;
-        padding: 16px;
-        padding-bottom: 36px;
+    .content-subject {
+        font-size: 24px;
+        margin: 22px 16px 16px 16px;
+    }
 
-        .content-subject {
-            font-size: 24px;
-            margin: 6px 0 8px 0;
-        }
+    .breef-content {
+        display: flex;
+        flex: 1 1 auto;
+        padding: 0 16px;
+        padding-bottom: 36px;
 
         .content-text {
             display: inline-block;
-            height: max-content;
-            width: 60%;
+            flex: 1 0 60%;
             font-size: 15px;
             padding: 8px 14px 0 4px;
             line-height: 21.56px;
@@ -61,8 +71,17 @@
         }
 
         .content-imgs-container {
-            display: inline-block;
+            flex: 1 0 40%;
+            display: inline;
+            flex-direction: column;
             padding-left: 16px;
+            overflow-y: auto;
+
+            .content-img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
         }
     }
 }
