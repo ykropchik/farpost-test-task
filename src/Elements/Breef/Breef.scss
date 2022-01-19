@@ -1,37 +1,71 @@
 .breef-container {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    height: 539px;
-    margin: 12px 24px;
+    width: 100%;
+    min-height: 200px;
+    max-height: calc(100vh - 48px);
 
     background: #FFFFFF;
     border: 1px solid #E4E4E4;
     border-radius: 3px;
     transition: all 0.2s ease;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+    // border: 3px solid transparent;
 
     &:focus {
-        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+        // border: 3px solid #f36d00;
+        box-shadow: 0px 1px 10px #f36d00;
+    }
+
+    &:focus-visible {
+        // border: 3px solid #f36d00;
+        outline: none;
     }
 
     .breef-header {
+        height: 49px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding: 12px 20px;
-        font-size: 14px;
         border-bottom: 1px solid #E4E4E4;
 
         .header-left-side {
             display: flex;
+            align-items: center;
             flex-direction: row;
             gap: 6px;
+            font-size: 14px;
 
             .breef-id {
                 text-decoration: none;
                 color: #1764CC;
             }
 
+            .lable {
+                width: auto;
+                height: 24px;
+                padding: 0px 8px;
+                border-radius: 12px;
+                font-size: 14px;
+                line-height: 24px;
+
+                &-approve {
+                    @extend .lable;
+                    background-color: #88bd35;
+                }
+
+                &-decline {
+                    @extend .lable;
+                    background-color: #F7882E;
+                }
+
+                &-escalate {
+                    @extend .lable;
+                    //color: #1764CC; // 126 94 56
+                    background-color: #1764CC;
+                }
+            }
         }
     
         .header-right-side {
@@ -49,33 +83,35 @@
         }
     }
 
-    .content-subject {
-        font-size: 24px;
-        margin: 22px 16px 16px 16px;
-    }
-
     .breef-content {
         display: flex;
-        flex: 1 1 auto;
-        padding: 0 16px;
-        padding-bottom: 36px;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 22px 16px 36px 16px;
+        overflow-y: auto;
+
+        .content-subject {
+            width: 100%;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
 
         .content-text {
             display: inline-block;
-            flex: 1 0 60%;
+            width: 60%;
             font-size: 15px;
             padding: 8px 14px 0 4px;
-            line-height: 21.56px;
+            line-height: 22px;
             white-space: pre-wrap;
             border-right: 1px solid #E4E4E4;
         }
 
         .content-imgs-container {
-            flex: 1 0 40%;
+            height: max-content;
+            width: 40%;
             display: inline;
             flex-direction: column;
             padding-left: 16px;
-            overflow-y: auto;
 
             .content-img {
                 display: block;

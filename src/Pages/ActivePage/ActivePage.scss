@@ -1,7 +1,6 @@
 .active-page {
-    display: grid;
-    grid-template-columns: 80% 20%;
+    display: flex;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-color: #F7F7F7;
 }

@@ -10,7 +10,7 @@ export const testData = [
         // string
         bulletinImagees: [                          // string[] ссылки на прикрепленные к объявлению изображения
             'https://static.baza.farpost.ru/v/1510541224458_hugeBlock',
-            // 'https://static.baza.farpost.ru/v/1510541224458_hugeBlock'
+            'https://static.baza.farpost.ru/v/1510541224458_hugeBlock'
         ]
     },
     {
