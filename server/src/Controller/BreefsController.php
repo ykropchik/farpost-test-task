@@ -43,9 +43,10 @@ class BreefsController extends AbstractController
     /**
      * @Route("/send", name="sendBreefs", methods={"POST"})
      */
-    public function sendBreefs(Request $request): Response
+    public function sendBreefs(FileService $fileService, Request $request): Response
     {
-        return $this->response("send");
+        $fileService->appendFile($request->getContent(), 'ProcessedData.json');
+        return $this->response($request->getContent());
     }
 
     /**
@@ -55,7 +56,8 @@ class BreefsController extends AbstractController
     {
         $sourceData = $fileService->readFile('SourceData.json');
         $fileService->writeFile($sourceData, 'RawData.json');
+        $fileService->writeFile('', 'ProcessedData.json');
 
-        return $this->response('success');
+        return $this->response('Successfully refreshed');
     }
 }
