@@ -5,6 +5,6 @@ export function getBreefs() {
     return axios.get(CONFIG.API_BASE_URL + '/get')
 }
 
-export function sendBreefs() {
-    return axios.post(CONFIG.API_BASE_URL + '/send')
+export function sendBreefs(data) {
+    return axios.post(CONFIG.API_BASE_URL + '/send', data)
 }
