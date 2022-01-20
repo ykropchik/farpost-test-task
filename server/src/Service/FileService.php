@@ -18,4 +18,8 @@ class FileService
     public function writeFile($data, $filename) {
         file_put_contents($this->targetDirectory . '/' . $filename, $data);
     }
+
+    public function appendFile($data, $filename) {
+        file_put_contents($this->targetDirectory . '/' . $filename, $data, FILE_APPEND);
+    }
 }
