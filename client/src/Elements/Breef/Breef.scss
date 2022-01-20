@@ -121,3 +121,39 @@
         }
     }
 }
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+
+    .modal-header {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .comment-input {
+        min-width: 500px;
+        min-height: 150px;
+        resize: none;
+    }
+
+    .btn-save {
+        height: 24px;
+        margin-left: auto;
+        margin-top: 16px;
+        padding: 0 16px;
+        background-color: #F7882E;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f36d00;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            background-color: #aaa;
+        }
+    }
+}
