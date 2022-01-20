@@ -35,9 +35,9 @@ class BreefsController extends AbstractController
             $remainderArray = array_slice($rawArray, 10, count($rawArray) - 10);
         }
 
-        $fileService->writeFile(json_encode($remainderArray, JSON_UNESCAPED_UNICODE), 'RawData.json');
+        $fileService->writeFile(json_encode($remainderArray, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES), 'RawData.json');
         
-        return $this->response(json_encode($sendingArray, JSON_UNESCAPED_UNICODE));
+        return $this->response($sendingArray);
     }
 
     /**
